@@ -1,0 +1,39 @@
+{
+  "name": "monorepo-sentinel",
+  "version": "1.0.0",
+  "description": "High-performance Monorepo Dependency Graph, Circular Reference, and Version Mismatch Auditor",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "monorepo-sentinel": "bin/monorepo-sentinel.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "monorepo",
+    "dependency-graph",
+    "circular-dependency",
+    "version-mismatch",
+    "turborepo",
+    "pnpm",
+    "yarn",
+    "npm-workspaces",
+    "code-quality",
+    "ci-cd",
+    "github-actions"
+  ],
+  "author": "Argus Kern <argus.kern@delos-beta.dls.so>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

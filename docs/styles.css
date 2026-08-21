@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-main: #090d16;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
+  --border: #1e293b;
+  --border-focus: #38bdf8;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --danger: #f43f5e;
+  --danger-bg: rgba(244, 63, 94, 0.1);
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.1);
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.graph-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: radial-gradient(circle at center, #131d31 0%, #090d16 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-danger {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.badge-warning {
+  background-color: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.badge-success {
+  background-color: var(--success-bg);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.node {
+  cursor: grab;
+  transition: r 0.2s, stroke-width 0.2s;
+}
+
+.node:active {
+  cursor: grabbing;
+}
+
+.link {
+  stroke: #334155;
+  stroke-opacity: 0.6;
+  transition: stroke 0.2s, stroke-width 0.2s;
+}
+
+.link.cycle-edge {
+  stroke: var(--danger);
+  stroke-width: 2.5px;
+  stroke-opacity: 0.9;
+  stroke-dasharray: 4;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
